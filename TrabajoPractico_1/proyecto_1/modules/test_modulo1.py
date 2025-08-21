@@ -4,8 +4,8 @@
 Created on Thu Sep  1 14:00:21 2022
 @author: Catedra de Algoritmos y Estructura de Datos
 """
-
-from modulos import ListaDobleEnlazada
+"Test para ejercicio 1"
+from actividad1 import ListaDobleEnlazada
 import unittest
 import random
 
