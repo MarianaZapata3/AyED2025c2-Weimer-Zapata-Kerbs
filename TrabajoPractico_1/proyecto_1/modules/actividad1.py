@@ -1,15 +1,15 @@
 # módulo para organizar funciones o clases utilizadas en nuestro proyecto
 # Crear tantos módulos como sea necesario para organizar el 
-#TP1 Act1
+#TP1 Actividad 1
 
-#Nodo
+# Clase Nodo
 class Nodo:
     def __init__(self, dato):
         self.dato = dato
         self.siguiente = None
         self.anterior = None
 
-
+# Clase Lista doblemente enlazada
 class ListaDobleEnlazada:
     def __init__(self):
         self.cabeza = None
@@ -17,10 +17,10 @@ class ListaDobleEnlazada:
         self.tamanio = 0
 
     def esta_vacia(self):
-        return self.tamanio == 0
+        return self.tamanio == 0 #Devuelve True si la lista está vacía
 
     def agregar_al_inicio(self, item):
-        nodo = Nodo(item)
+        nodo = Nodo(item)            #Agrega un nuevo ítem al inicio de la lista
         if self.esta_vacia():
             self.cabeza = self.cola = nodo
         else:
@@ -30,7 +30,7 @@ class ListaDobleEnlazada:
         self.tamanio += 1
 
     def agregar_al_final(self, item):
-        nodo = Nodo(item)
+        nodo = Nodo(item)             #Agrega un nuevo ítem al final de la lista
         if self.esta_vacia():
             self.cabeza = self.cola = nodo
         else:
@@ -40,8 +40,8 @@ class ListaDobleEnlazada:
         self.tamanio += 1
 
     def insertar(self, item, posicion=None):
-        if posicion is None:
-            self.agregar_al_final(item)
+        if posicion is None:              #Inserta un nuevo ítem en la posición indicada
+            self.agregar_al_final(item)   #Si no se pasa posición, lo inserta al final
             return
 
         if posicion < 0 or posicion > self.tamanio:
