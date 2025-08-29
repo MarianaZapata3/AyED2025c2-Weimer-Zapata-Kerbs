@@ -70,7 +70,70 @@ class ListaDobleEnlazada:
         actual.anterior = nodo             # El anterior del nodo actual apunta al nuevo nodo
         self.tamanio += 1                  # Incrementa el tamaño de la lista
 
-    
+    #Extraer
+        if self.esta_vacia():
+            raise Exception("La lista está vacía")
+
+        if posicion is None:
+            posicion = self.tamanio - 1
+
+        if posicion < 0 or posicion >= self.tamanio:
+            raise Exception("Posición inválida")
+
+        if posicion < self.tamanio // 2:
+            actual = self.cabeza
+            for _ in range(posicion):
+                actual = actual.siguiente
+        else:
+            actual = self.cola
+            for _ in range(self.tamanio - 1, posicion, -1):
+                actual = actual.anterior
+
+        if actual.anterior:
+            actual.anterior.siguiente = actual.siguiente
+        else:
+            self.cabeza = actual.siguiente
+
+        if actual.siguiente:
+            actual.siguiente.anterior = actual.anterior
+        else:
+            self.cola = actual.anterior
+
+        self.tamanio -= 1
+        return actual.dato
+
+    #Copiar
+    def copiar(self):
+        copia = ListaDobleEnlazada()
+        actual = self.cabeza
+        while actual:
+            copia.agregar_al_final(actual.dato)
+            actual = actual.siguiente
+        return copia
+
+    #Invertir
+    def invertir(self):
+        actual = self.cabeza
+        self.cabeza, self.cola = self.cola, self.cabeza  # Intercambiar cabeza y cola
+        while actual:
+            actual.siguiente, actual.anterior = actual.anterior, actual.siguiente
+            actual = actual.anterior  # Como intercambiamos, avanzar por "anterior"
+
+    #Concatenar
+    def concatenar(self, otra_lista):
+        if otra_lista.esta_vacia():
+            return self
+
+        if self.esta_vacia():
+            self.cabeza = otra_lista.cabeza
+            self.cola = otra_lista.cola
+        else:
+            self.cola.siguiente = otra_lista.cabeza
+            otra_lista.cabeza.anterior = self.cola
+            self.cola = otra_lista.cola
+
+        self.tamanio += otra_lista.tamanio
+        return self
 
 
         
