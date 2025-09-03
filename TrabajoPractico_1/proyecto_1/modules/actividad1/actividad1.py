@@ -164,6 +164,7 @@ class ListaDobleEnlazada:
             actual = actual.siguiente
 
 #grafico para actividad 1 (NO EJECUTAR HASTA TENER TODO)
+
 if __name__ == "__main__":
     import time
     import matplotlib.pyplot as plt
@@ -205,3 +206,4 @@ if __name__ == "__main__":
     plt.legend()
     plt.grid(True)
     plt.show()
+
