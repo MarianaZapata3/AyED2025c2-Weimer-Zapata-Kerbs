@@ -17,18 +17,14 @@ def OrdenamientoBurbuja(lista):
 
 
 #HAY QUE ARREGLAR ESTE, PORQUE NO TIENE QUE SER SELECCION, ES QUICKSORT
-def OrdenamientoPorSeleccion(lista):
-    for LlenarRanura in range(len(lista)-1,0,-1):
-        PosicionMayor=0
-        for ubicacion in range(1,LlenarRanura+1):
-            if lista[ubicacion]>lista[PosicionMayor]:
-                PosicionMayor=ubicacion
-        
-        temp=lista[LlenarRanura]
-        lista[LlenarRanura]=lista[PosicionMayor]
-        lista[PosicionMayor]=temp
-OrdenamientoPorSeleccion(lista)
-print(lista)
+def quicksort(lista):
+    if len(lista) <= 1:
+        return lista
+    else:
+        pivote = lista[0]
+        menores = [x for x in lista[1:] if x <= pivote]
+        mayores = [x for x in lista[1:] if x > pivote]
+        return quicksort(menores) + [pivote] + quicksort(mayores)
 
 
 #Residuo
@@ -55,13 +51,12 @@ def OrdenamientoPorResiduo(lista):
 
 
 
-# ---------------------------
 # MEDICIÓN DE TIEMPOS
 # ---------------------------
 tamanos = [100, 200, 300, 500, 1000]
 
 tiempos_burbuja=[]
-tiempos_seleccion=[]
+tiempos_quicksort=[]
 tiempos_residuo=[]
 tiempos_sorted = []
 
@@ -76,9 +71,9 @@ for n in tamanos:
 
     # Quicksort
     inicio = time.time()
-    OrdenamientoPorSeleccion(lista[:])
+    quicksort(lista[:])
     fin = time.time()
-    tiempos_seleccion.append(fin - inicio)
+    tiempos_quicksort.append(fin - inicio)
 
     # Residuo
     inicio = time.time()
@@ -99,16 +94,15 @@ for n in tamanos:
 lista = [random.randint(10000, 99999) for _ in range(500)]
 print("Lista original (primeros 20):", lista[:20])
 print("Burbuja:", OrdenamientoBurbuja(lista[:])[:20])
-print("Quicksort:", OrdenamientoPorResiduo(lista[:])[:20])
+print("Quicksort:", quicksort(lista[:])[:20])
 print("Residuo:", OrdenamientoPorResiduo(lista[:])[:20])
-
 
 
 # ---------------------------
 # GRAFICAR RESULTADOS
 # ---------------------------
 plt.plot(tamanos, tiempos_burbuja, marker="o", label="Burbuja")
-plt.plot(tamanos, tiempos_seleccion, marker="o", label="Seleccion")
+plt.plot(tamanos, tiempos_quicksort, marker="o", label="Quicksort")
 plt.plot(tamanos, tiempos_residuo, marker="o", label="Radix (residuo)")
 plt.plot(tamanos, tiempos_sorted, marker="o", label="sorted (built-in)")
 
