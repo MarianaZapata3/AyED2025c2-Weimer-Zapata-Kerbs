@@ -1,41 +1,49 @@
-# test_tiempos.py
-# -----------------------------------
-# mide y grafica los tiempos de ejecución de los algoritmos:
-# selección, burbuja y shell
-
+from matplotlib import pyplot as plt
 from random import randint
+import time
 from modules.actividad3.ordenamientoburbuja import ordenamiento_burbuja
-from modules.actividad3.ordenamientoseleccion import ordenamiento_por_seleccion
-from modules.actividad3.ordenamientoradixsort import radix_sort
 
-# Generar lista de prueba con 500 números aleatorios de 5 dígitos
-N = 500
-datos = [randint(10000, 99999) for _ in range(N)]
+# tamaños de listas a probar
+tamanos = [1, 10, 100, 200, 500, 700, 1000]
 
-# Copias para cada método
-datos_burbuja = datos.copy()
-datos_seleccion = datos.copy()
-datos_radix = datos.copy()
-datos_sorted = datos.copy()
+# listas para guardar los tiempos de cada método
+tiempos_burbuja = []
+tiempos_seleccion = []
+tiempos_radix = []
+tiempos_sorted = []
 
-# --- Ordenamiento Burbuja ---
-resultado_burbuja = ordenamiento_burbuja(datos_burbuja)
-print("Burbuja - primeros 20:", resultado_burbuja[:20])
+# figsize es el tamaño de la figura en pulgadas (width, height)
+plt.figure(figsize=(10, 6))
 
-# --- Ordenamiento Selección ---
-resultado_seleccion = ordenamiento_por_seleccion(datos_seleccion)
-print("Selección - primeros 20:", resultado_seleccion[:20])
+for n in tamanos:
+    # lista de n números aleatorios de 5 dígitos
+    datos = [randint(10000, 99999) for _ in range(n)]
 
-# --- Ordenamiento Radix Sort ---
-resultado_radix = radix_sort(datos_radix)
-print("Radix Sort - primeros 20:", resultado_radix[:20])
+    # --- Burbuja ---
+    inicio = time.perf_counter()
+    ordenamiento_burbuja(datos.copy())
+    fin = time.perf_counter()
+    tiempos_burbuja.append(fin - inicio)
 
-# --- Función built-in sorted ---
-resultado_sorted = sorted(datos_sorted)
-print("Sorted - primeros 20:", resultado_sorted[:20])
+    # --- Selección ---
+    
 
-# --- Verificar que todos los resultados sean iguales ---
-if resultado_burbuja == resultado_seleccion == resultado_radix == resultado_sorted:
-    print("✅ Todos los métodos se ordenaron correctamente")
-else:
-    print("❌ Hay diferencias entre los métodos")
+    # --- Radix Sort ---
+    
+
+    # --- Sorted (built-in) ---
+    inicio = time.perf_counter()
+    sorted(datos)
+    fin = time.perf_counter()
+    tiempos_sorted.append(fin - inicio)
+
+# Graficar los resultados
+plt.plot(tamanos, tiempos_burbuja, marker='o', label="Burbuja O(n^2)")
+plt.plot(tamanos, tiempos_sorted, marker='o', label="Python sorted O(n log n)")
+
+plt.xlabel('Tamaño de la lista')
+plt.ylabel('Tiempo (segundos)')
+plt.title('Comparación de tiempos de ordenamiento')
+plt.legend()
+plt.grid()
+plt.show()

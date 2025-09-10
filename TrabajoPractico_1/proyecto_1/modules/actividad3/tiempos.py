@@ -5,9 +5,7 @@
 
 from random import randint
 import time
-from ordenamientoseleccion import ordenamiento_por_seleccion
 from ordenamientoburbuja import ordenamiento_burbuja
-from ordenamientoradixsort import radix_sort
 
 def medir_tiempos(metodo, tamanos):
     tiempos = []
@@ -19,6 +17,5 @@ def medir_tiempos(metodo, tamanos):
         tiempos.append(fin - inicio)
         print(f"{metodo.__name__} n={n}: {fin - inicio:.6f}s")
     return tiempos
-
 
 

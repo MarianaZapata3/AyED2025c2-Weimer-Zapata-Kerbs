@@ -163,7 +163,7 @@ class ListaDobleEnlazada:
             yield actual.dato
             actual = actual.siguiente
 
-#grafico para actividad 1 (NO EJECUTAR HASTA TENER TODO)
+#grafico para actividad 1
 
 if __name__ == "__main__":
     import time
