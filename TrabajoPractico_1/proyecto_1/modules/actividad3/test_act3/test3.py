@@ -8,7 +8,7 @@ tamanos = [1, 10, 100, 200, 500, 700, 1000]
 
 # listas para guardar los tiempos de cada método
 tiempos_burbuja = []
-tiempos_seleccion = []
+tiempos_quicksort = []
 tiempos_radix = []
 tiempos_sorted = []
 
@@ -25,7 +25,7 @@ for n in tamanos:
     fin = time.perf_counter()
     tiempos_burbuja.append(fin - inicio)
 
-    # --- Selección ---
+    # --- quicksort ---
     
 
     # --- Radix Sort ---

@@ -123,11 +123,12 @@ class ListaDobleEnlazada:
             actual.siguiente, actual.anterior = actual.anterior, actual.siguiente
             actual = actual.anterior  # Como intercambiamos, avanzar por "anterior"
 
-    #Concatenar
     def concatenar(self, otra_lista):
-        otra = otra_lista.copiar()  # <-- aseguramos que los punteros sean limpios
-        if otra.esta_vacia():
+        if otra_lista.esta_vacia():
             return self
+
+    # Creamos una copia de la lista a concatenar para no modificar la original
+        otra = otra_lista.copiar()
 
         if self.esta_vacia():
             self.cabeza = otra.cabeza
@@ -137,9 +138,16 @@ class ListaDobleEnlazada:
             otra.cabeza.anterior = self.cola
             self.cola = otra.cola
 
-        self.cabeza.anterior = None
         self.tamanio += otra.tamanio
+
+    # Punteros extremos limpios
+        if self.cabeza:
+            self.cabeza.anterior = None
+        if self.cola:
+            self.cola.siguiente = None
+
         return self
+
 
     
     #__len__(): devuelve el número de ítems de la lista

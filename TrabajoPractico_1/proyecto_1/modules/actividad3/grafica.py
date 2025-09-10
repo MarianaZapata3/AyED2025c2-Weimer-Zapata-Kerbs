@@ -6,7 +6,7 @@ from ordenamientoburbuja import ordenamiento_burbuja
 tamanos = [1, 10, 100, 200, 500, 700, 1000]
 
 tiempos = {
-    "seleccion": [],
+    "quicksort": [],
     "burbuja": [],
     "radix": [],
     "sorted": []
@@ -15,7 +15,7 @@ tiempos = {
 for n in tamanos:
     datos = [randint(10000, 99999) for _ in range(n)]
 
-    # Selección
+    # Quicksort
     
 
     # Burbuja
