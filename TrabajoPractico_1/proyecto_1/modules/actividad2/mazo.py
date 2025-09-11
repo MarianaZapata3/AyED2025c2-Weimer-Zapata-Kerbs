@@ -1,5 +1,5 @@
 # mazo.py
-from modules.actividad1.actividad1 import ListaDobleEnlazada  # tu implementación de la Act 1
+from modules.actividad1.actividad1 import ListaDobleEnlazada  # tu implementación del TP1
 
 class DequeEmptyError(Exception):
     """Se lanza si se intenta sacar carta de un mazo vacío"""
@@ -21,15 +21,7 @@ class Mazo:
         """Extrae carta del inicio del mazo"""
         if self._cartas.esta_vacia():
             raise DequeEmptyError("No se puede sacar carta de un mazo vacío")
-        carta = self._cartas.cabeza.dato
-        # Mover la cabeza al siguiente nodo
-        self._cartas.cabeza = self._cartas.cabeza.siguiente
-        if self._cartas.cabeza:
-            self._cartas.cabeza.anterior = None
-        else:
-            # Si la lista queda vacía, actualizar cola también
-            self._cartas.cola = None
-        self._cartas.tamanio -= 1
+        carta = self._cartas.extraer(0)  # extrae el nodo de la posición 0
         if mostrar:
             print(f"Se sacó: {carta}")
         return carta
