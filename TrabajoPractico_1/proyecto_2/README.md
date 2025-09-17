@@ -37,20 +37,27 @@ Las gráficas de los resultados están disponibles en la carpeta data
 El informe completo está disponible en la carpeta docs
  del proyecto.
 
- Ejercicio 1 – Lista Doble Enlazada
+Ejercicio 2 – Mazo de Cartas
 
-Implementa un TAD de lista doblemente enlazada.
+Implementa un mazo de cartas usando la lista doblemente enlazada.
 
-Operaciones principales: insertar al inicio o al final, eliminar nodos, recorrer adelante o atrás.
+Operaciones principales:
 
-Se realizaron pruebas con listas de 500 elementos aleatorios para verificar que todas las operaciones funcionan correctamente.
+poner_carta_arriba → O(1)
 
-Se midieron tiempos de ejecución para cada operación y se generaron gráficas comparando los resultados con la complejidad teórica:
+poner_carta_abajo → O(1)
 
-Inserción/Eliminación en extremos → O(1)
+sacar_carta_arriba → O(1)
 
-Búsqueda/Recorrido → O(n)
+__len__ → O(1)
 
+__str__ → O(n)
+
+Se realizaron pruebas con mazos de 500 cartas aleatorias.
+
+Se verificó que las operaciones mantienen el orden esperado y que los resultados son correctos.
+
+Se pueden generar gráficas de la evolución del tamaño del mazo durante la ejecución.
 ---
 ## 📑Dependencias
 
