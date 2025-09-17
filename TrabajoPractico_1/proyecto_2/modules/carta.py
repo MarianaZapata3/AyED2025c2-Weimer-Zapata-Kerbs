@@ -57,6 +57,14 @@ class Carta:
     def __repr__(self):
         return str(self)
     
+    #Agregado por mi
+    def __str__(self):
+        simbolos = {'trebol':'♣','corazones':'♥','diamantes':'♦','picas':'♠'}
+        return f"{self.valor}{simbolos.get(self.palo, self.palo)}"
+    def __repr__(self):
+        return str(self)
+
+
     
 if __name__ == "__main__":
     carta = Carta("♣", "3")
