@@ -1,34 +1,27 @@
-# 🐍Proyecto “Estructuras y Algoritmos de Cartas”
-
+# 🐍Proyecto “Lista Doble Enlazada”
 Breve descripción del proyecto:
 
-Este proyecto implementa estructuras de datos y algoritmos para manejar listas y mazos de cartas usando listas doblemente enlazadas.
+Este proyecto implementa un Tipo Abstracto de Datos (TAD) de lista doblemente enlazada.
 Permite:
 
-Crear y manipular mazos de cartas (agregar arriba/abajo, sacar cartas, recorrer).
+Insertar elementos al inicio o al final de la lista.
 
-Implementar y probar listas doblemente enlazadas con distintas operaciones.
+Eliminar elementos de la lista.
 
-Medir tiempos de ejecución y analizar la complejidad de las operaciones.
+Recorrer la lista hacia adelante o hacia atrás.
 
-Generar gráficas que muestran el comportamiento de cada estructura/algoritmo
+Medir la eficiencia de las operaciones y analizar su complejidad.
 
 ---
 ## 🏗Arquitectura General
 
-El proyecto está organizado en módulos y una aplicación principal:
+El código está organizado de manera modular:
 
-modulos/ → contiene los TADs y clases principales:
+modulos/lista.py → contiene la clase ListaDobleEnlazada con todas las operaciones del TAD.
 
-lista.py → implementación de la lista doblemente enlazada (Ejercicio 1)
+main.py → ejecuta pruebas con listas de distintos tamaños, verifica resultados y genera gráficas de tiempos de ejecución.
 
-mazo.py → implementación del mazo de cartas (Ejercicio 2)
-
-simulacion.py → medición de tiempos y gráficos para análisis de complejidad (Ejercicio 3)
-
-main.py → ejecuta los tres ejercicios, mide tiempos y genera gráficos.
-
-data/ → carpeta donde se guardan las gráficas generadas por Python.
+data/ → carpeta donde se guardan las gráficas generadas.
 
 docs/ → carpeta donde se encuentra el informe completo en PDF.
 
