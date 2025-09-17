@@ -1,19 +1,29 @@
-# 🐍Nombre del proyecto (darle un nombre significativo) 
+# 🐍Proyecto “Comparación de Algoritmos de Ordenamiento”
+Breve descripción del proyecto
 
-Breve descripción del proyecto:
+Este proyecto implementa y compara distintos algoritmos de ordenamiento en Python:
 
-Ejemplo: “Este es un script en el que se comparan algoritmos de ordenamiento. Permite [describir funcionalidades principales].
+Burbuja (Bubble Sort)
 
----
-## 🏗Arquitectura General
+Quicksort
 
-Explica brevemente cómo está organizado el código (funciones y/o clases)
+Radix Sort (Ordenamiento por residuos)
 
-Las gráficas de los resultados están disponible en la carpeta [data](./data) del proyecto.
+Se generan listas aleatorias de números de cinco dígitos (mínimo 500 elementos) y se mide el tiempo de ejecución de cada algoritmo para listas de tamaño entre 1 y 1000.
+Además, se compara con la función built-in de Python sorted().
 
-El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
+---🏗 Arquitectura General
 
----
+modulos/ordenamiento.py → implementación de los algoritmos: burbuja, quicksort y radix.
+
+main.py → genera listas de prueba, mide tiempos, genera gráficas y compara los algoritmos.
+
+data/ → carpeta donde se guardan las gráficas de tiempos de ejecución.
+
+docs/ → carpeta donde se encuentra el informe completo en PDF.
+
+Las gráficas de resultados están disponibles en data
+.
 ## 📑Dependencias
 
 1. **Python 3.x**
@@ -36,8 +46,9 @@ El informe completo está disponible en la carpeta [docs](./docs) del proyecto.
 ---
 ## 🙎‍♀️🙎‍♂️Autores
 
-- Apellido y Nombre del primer integrante
-- Apellido y Nombre del primer integrante
+- Zapata Mariana Gabriela 
+- Weimer Valentin
+- Kerbs Javier
 
 ---
 
