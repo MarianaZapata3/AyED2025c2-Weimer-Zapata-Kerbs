@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # 🐍Proyecto “Lista Doble Enlazada”
 Breve descripción del proyecto:
 
@@ -11,10 +12,27 @@ Eliminar elementos de la lista.
 Recorrer la lista hacia adelante o hacia atrás.
 
 Medir la eficiencia de las operaciones y analizar su complejidad.
+=======
+# 🐍Proyecto “Estructuras y Algoritmos de Cartas”
+
+Breve descripción del proyecto:
+
+Este proyecto implementa estructuras de datos y algoritmos para manejar listas y mazos de cartas usando listas doblemente enlazadas.
+Permite:
+
+Crear y manipular mazos de cartas (agregar arriba/abajo, sacar cartas, recorrer).
+
+Implementar y probar listas doblemente enlazadas con distintas operaciones.
+
+Medir tiempos de ejecución y analizar la complejidad de las operaciones.
+
+Generar gráficas que muestran el comportamiento de cada estructura/algoritmo
+>>>>>>> 3c1e468 (agregado)
 
 ---
 ## 🏗Arquitectura General
 
+<<<<<<< HEAD
 El código está organizado de manera modular:
 
 modulos/lista.py → contiene la clase ListaDobleEnlazada con todas las operaciones del TAD.
@@ -22,6 +40,21 @@ modulos/lista.py → contiene la clase ListaDobleEnlazada con todas las operacio
 main.py → ejecuta pruebas con listas de distintos tamaños, verifica resultados y genera gráficas de tiempos de ejecución.
 
 data/ → carpeta donde se guardan las gráficas generadas.
+=======
+El proyecto está organizado en módulos y una aplicación principal:
+
+modulos/ → contiene los TADs y clases principales:
+
+lista.py → implementación de la lista doblemente enlazada (Ejercicio 1)
+
+mazo.py → implementación del mazo de cartas (Ejercicio 2)
+
+simulacion.py → medición de tiempos y gráficos para análisis de complejidad (Ejercicio 3)
+
+main.py → ejecuta los tres ejercicios, mide tiempos y genera gráficos.
+
+data/ → carpeta donde se guardan las gráficas generadas por Python.
+>>>>>>> 3c1e468 (agregado)
 
 docs/ → carpeta donde se encuentra el informe completo en PDF.
 
@@ -70,6 +103,10 @@ Búsqueda/Recorrido → O(n)
 - Zapata Mariana Gabriela
 - Weimer Valentin
 - Kerbs Javier
+<<<<<<< HEAD
+=======
+
+>>>>>>> 3c1e468 (agregado)
 ---
 
 > **Consejo**: Mantén el README **actualizado** conforme evoluciona el proyecto, y elimina (o añade) secciones según necesites. Esta plantilla es sólo un punto de partida general.
