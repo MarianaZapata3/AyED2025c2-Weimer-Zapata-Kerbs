@@ -23,7 +23,8 @@ class Mazo:
             raise DequeEmptyError("No se puede sacar carta de un mazo vacío")
         carta = self._cartas.extraer(0)  # extrae el nodo de la posición 0
         if mostrar:
-            print(f"Se sacó: {carta}")
+            #print(f"Se sacó: {carta}")
+            carta.visible=True
         return carta
 
     def __len__(self):
