@@ -1,7 +1,7 @@
 #grafico para actividad 1
 import time
 import matplotlib.pyplot as plt
-from lista_doble1 import ListaDobleEnlazada  # tu implementación
+from modules.lista_doble1 import ListaDobleEnlazada  # tu implementación
 
 if __name__ == "__main__":
     import time
