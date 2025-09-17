@@ -1,34 +1,28 @@
-# 🐍Proyecto “Estructuras y Algoritmos de Cartas”
-
+# 🐍Proyecto “Mazo de Cartas”
 Breve descripción del proyecto:
 
-Este proyecto implementa estructuras de datos y algoritmos para manejar listas y mazos de cartas usando listas doblemente enlazadas.
+Este proyecto implementa un mazo de cartas usando una lista doblemente enlazada.
 Permite:
 
-Crear y manipular mazos de cartas (agregar arriba/abajo, sacar cartas, recorrer).
+Agregar cartas al inicio o al final del mazo.
 
-Implementar y probar listas doblemente enlazadas con distintas operaciones.
+Sacar cartas del mazo de manera controlada.
 
-Medir tiempos de ejecución y analizar la complejidad de las operaciones.
+Obtener el tamaño del mazo y recorrerlo en orden.
 
-Generar gráficas que muestran el comportamiento de cada estructura/algoritmo
-
+Medir el desempeño de las operaciones y analizar su complejidad.
 ---
 ## 🏗Arquitectura General
 
-El proyecto está organizado en módulos y una aplicación principal:
+El código está organizado de manera modular:
 
-modulos/ → contiene los TADs y clases principales:
+modulos/mazo.py → contiene la clase Mazo con todas las operaciones del TAD.
 
-lista.py → implementación de la lista doblemente enlazada (Ejercicio 1)
+modulos/lista.py → lista doblemente enlazada utilizada internamente por el mazo.
 
-mazo.py → implementación del mazo de cartas (Ejercicio 2)
+main.py → ejecuta pruebas con mazos de distintos tamaños, verifica resultados y genera gráficas de tiempos de ejecución.
 
-simulacion.py → medición de tiempos y gráficos para análisis de complejidad (Ejercicio 3)
-
-main.py → ejecuta los tres ejercicios, mide tiempos y genera gráficos.
-
-data/ → carpeta donde se guardan las gráficas generadas por Python.
+data/ → carpeta donde se guardan las gráficas generadas.
 
 docs/ → carpeta donde se encuentra el informe completo en PDF.
 
@@ -36,7 +30,6 @@ Las gráficas de los resultados están disponibles en la carpeta data
  del proyecto.
 El informe completo está disponible en la carpeta docs
  del proyecto.
-
 Ejercicio 2 – Mazo de Cartas
 
 Implementa un mazo de cartas usando la lista doblemente enlazada.
