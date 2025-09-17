@@ -1,5 +1,4 @@
 # mazo.py
-
 from modules.lista_doble1 import ListaDobleEnlazada  # tu implementación del TP1
 
 class DequeEmptyError(Exception):
