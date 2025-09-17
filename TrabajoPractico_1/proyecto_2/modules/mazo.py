@@ -1,5 +1,6 @@
 # mazo.py
-from modules.lista_doble import ListaDobleEnlazada  # tu implementación del TP1
+
+from modules.lista_doble1 import ListaDobleEnlazada  # tu implementación del TP1
 
 class DequeEmptyError(Exception):
     """Se lanza si se intenta sacar carta de un mazo vacío"""
