@@ -15,9 +15,9 @@ import os
 sys.path.append(os.path.dirname(__file__))
 
 #Importar algoritmos
-from ordenamientoburbuja import ordenamiento_burbuja
-from ordenamientoquicksort import quicksort
-from ordenamientoradixsort import radix_sort
+from modules.ordenamientoburbuja import ordenamiento_burbuja
+from modules.ordenamientoquicksort import quicksort
+from modules.ordenamientoradixsort import radix_sort
 
 #Función para medir tiempos
 
