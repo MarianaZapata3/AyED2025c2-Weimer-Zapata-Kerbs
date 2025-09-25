@@ -14,9 +14,12 @@ Además, se compara con la función built-in de Python sorted().
 
 ---🏗 Arquitectura General
 
-modulos/ordenamiento.py → implementación de los algoritmos: burbuja, quicksort y radix.
+modulos/ordenamientoburbuja.py → implementación de los algoritmos: burbuja.
+modulos/ordenamientoquicksort.py → implementación de los algoritmos: quicksort.
+modulos/ordenamientoradixsort.py → implementación de los algoritmos: radix.
+modulos/ordenamientosorted.py → implementación de los algoritmos: sorted.
 
-main.py → genera listas de prueba, mide tiempos, genera gráficas y compara los algoritmos.
+test3.py → genera listas de prueba, mide tiempos, genera gráficas y compara los algoritmos.
 
 data/ → carpeta donde se guardan las gráficas de tiempos de ejecución.
 
