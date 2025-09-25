@@ -18,9 +18,11 @@ El código está organizado de manera modular:
 
 modulos/mazo.py → contiene la clase Mazo con todas las operaciones del TAD.
 
-modulos/lista.py → lista doblemente enlazada utilizada internamente por el mazo.
+modulos/lista_doble1.py → lista doblemente enlazada utilizada internamente por el mazo.
 
-main.py → ejecuta pruebas con mazos de distintos tamaños, verifica resultados y genera gráficas de tiempos de ejecución.
+test_juego_guerra.py → ejecuta pruebas con mazos de distintos tamaños, verifica resultados y genera gráficas de tiempos de ejecución.
+
+test_mazo.py → ejecuta pruebas con el mazo.
 
 data/ → carpeta donde se guardan las gráficas generadas.
 
