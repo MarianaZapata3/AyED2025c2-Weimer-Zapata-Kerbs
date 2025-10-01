@@ -25,46 +25,46 @@ class Temperaturas_DB:
 # ------------------------------
 # Métodos auxiliares del AVL
 # ------------------------------
-    def _altura(self, nodo):
+    def altura(self, nodo):
         return nodo.altura if nodo else 0
 
-    def _balance(self, nodo):
-        return self._altura(nodo.izq) - self._altura(nodo.der) if nodo else 0
+    def balance(self, nodo):
+        return self.altura(nodo.izq) - self.altura(nodo.der) if nodo else 0
 
-    def _rotacion_der(self, y):
+    def rotacion_der(self, y):
         x = y.izq
         T2 = x.der
         x.der = y
         y.izq = T2
-        y.altura = 1 + max(self._altura(y.izq), self._altura(y.der))
-        x.altura = 1 + max(self._altura(x.izq), self._altura(x.der))
+        y.altura = 1 + max(self.altura(y.izq), self.altura(y.der))
+        x.altura = 1 + max(self.altura(x.izq), self.altura(x.der))
         return x
 
-    def _rotacion_izq(self, x):
+    def rotacion_izq(self, x):
         y = x.der
         T2 = y.izq
         y.izq = x
         x.der = T2
-        x.altura = 1 + max(self._altura(x.izq), self._altura(x.der))
-        y.altura = 1 + max(self._altura(y.izq), self._altura(y.der))
+        x.altura = 1 + max(self.altura(x.izq), self.altura(x.der))
+        y.altura = 1 + max(self.altura(y.izq), self.altura(y.der))
         return y
 
-    def _balancear(self, nodo, fecha):
-        balance = self._balance(nodo)
+    def balancear(self, nodo, fecha):
+        balance = self.balance(nodo)
         # Izq-Izq
         if balance > 1 and fecha < nodo.izq.fecha:
-            return self._rotacion_der(nodo)
+            return self.rotacion_der(nodo)
         # Der-Der
         if balance < -1 and fecha > nodo.der.fecha:
-            return self._rotacion_izq(nodo)
+            return self.rotacion_izq(nodo)
         # Izq-Der
         if balance > 1 and fecha > nodo.izq.fecha:
-            nodo.izq = self._rotacion_izq(nodo.izq)
-            return self._rotacion_der(nodo)
+            nodo.izq = self.rotacion_izq(nodo.izq)
+            return self.rotacion_der(nodo)
         # Der-Izq
         if balance < -1 and fecha < nodo.der.fecha:
-            nodo.der = self._rotacion_der(nodo.der)
-            return self._rotacion_izq(nodo)
+            nodo.der = self.rotacion_der(nodo.der)
+            return self.rotacion_izq(nodo)
         return nodo
 # ------------------------------
 # Cargar desde archivo (corregido)
@@ -83,7 +83,7 @@ class Temperaturas_DB:
                 try:
                     fecha_obj = datetime.strptime(fecha_str.strip(), "%Y-%m-%d").date()
                     fecha_formato = fecha_obj.strftime("%d/%m/%Y")
-                    self.guardar_temperatura(float(temp_str.strip()), fecha_formato)
+                    #self.guardar_temperatura(float(temp_str.strip()), fecha_formato) se ejecuta cuando este def_guardar
                 except ValueError as e:
                     print(f"Error procesando línea '{linea}': {e}")
                     continue
