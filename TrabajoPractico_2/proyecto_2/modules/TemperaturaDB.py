@@ -22,9 +22,9 @@ class Temperaturas_DB:
         self.raiz = None
         self._cantidad = 0
 
-    # ------------------------------
-    # Métodos auxiliares del AVL
-    # ------------------------------
+# ------------------------------
+# Métodos auxiliares del AVL
+# ------------------------------
     def _altura(self, nodo):
         return nodo.altura if nodo else 0
 
@@ -87,23 +87,3 @@ class Temperaturas_DB:
                 except ValueError as e:
                     print(f"Error procesando línea '{linea}': {e}")
                     continue
-# ------------------------------
-# Guardar temperatura
-# ------------------------------
-    def guardar_temperatura(self, temperatura, fecha):
-        fecha = datetime.strptime(fecha, "%d/%m/%Y").date()
-        self.raiz = self._insertar(self.raiz, fecha, temperatura)
-
-    def _insertar(self, nodo, fecha, temp):
-            if not nodo:
-                self._cantidad += 1
-                return NodoAVL(fecha, temp)
-            elif fecha < nodo.fecha:
-                nodo.izq = self._insertar(nodo.izq, fecha, temp)
-            elif fecha > nodo.fecha:
-                nodo.der = self._insertar(nodo.der, fecha, temp)
-            else:
-                nodo.temperatura = temp  # actualizar si ya existe
-                return nodo
-            nodo.altura = 1 + max(self._altura(nodo.izq), self._altura(nodo.der))
-            return self._balancear(nodo, fecha)
