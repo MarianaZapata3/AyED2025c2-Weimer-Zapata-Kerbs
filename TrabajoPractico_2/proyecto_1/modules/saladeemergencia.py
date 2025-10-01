@@ -37,7 +37,8 @@ while pacientes_llegados < n or not cola_de_espera.esta_vacia():
     print('-*-'*15)
     time.sleep(1)
 
-    
+#Mensaje final
+print("No hay mas pacientes por atender") 
 
 
 
