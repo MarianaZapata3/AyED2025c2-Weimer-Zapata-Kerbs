@@ -7,7 +7,7 @@ class ColaPrioridad:
 
     def encolar(self, item, prioridad):
         heapq.heappush(self._heap, (prioridad, self._contador, item))
-        self._contador += 1
+        self._contador += 1 #suma un paciente a la cola por cada ciclo
 
     def desencolar(self):
         if self._heap:

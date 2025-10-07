@@ -20,7 +20,7 @@ class Paciente:
         self.__riesgo = choices(niveles_de_riesgo, probabilidades)[0]
         self.__descripcion = descripciones_de_riesgo[self.__riesgo-1]
         self.timestamp = Paciente.contador
-        Paciente.contador += 1
+        Paciente.contador += 1 #agrega a la fila al paciente cuando no es de prioridad o hay otro de prioridad atendiendose
 
     def get_nombre(self):
         return self.__nombre
@@ -29,7 +29,7 @@ class Paciente:
         return self.__apellido
     
     def get_riesgo(self):
-        return self.__riesgo
+        return self.__riesgo #riesgo del paciente
     
     def get_descripcion_riesgo(self):
         return self.__descripcion
