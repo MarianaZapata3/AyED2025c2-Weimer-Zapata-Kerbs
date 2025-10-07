@@ -9,11 +9,11 @@ db.cargar_desde_archivo("data/muestras.txt")
 
 
 
-# ------------------------------
+
 # Consultas usando fechas completas dd/mm/yyyy
-# ------------------------------
+
 #ESTO ES PARA CUANDO TENGAMOS TODO
-print("Temperatura 10/01/2025:", db.devolver_temperatura("10/01/2025"))
+#print("Temperatura 10/01/2025:", db.devolver_temperatura("10/01/2025"))
 #print("Máx entre 01/01/2025 y 20/01/2025:", db.max_temp_rango("01/01/2025", "20/01/2025"))
 #print("Mín entre 01/01/2025 y 20/01/2025:", db.min_temp_rango("01/01/2025", "20/01/2025"))
 #print("Extremos entre 01/01/2025 y 30/01/2025:", db.temp_extremos_rango("01/01/2025", "30/01/2025"))
