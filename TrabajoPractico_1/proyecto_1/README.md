@@ -5,11 +5,11 @@ Breve descripción del proyecto:
 Este proyecto implementa un Tipo Abstracto de Datos (TAD) de lista doblemente enlazada.
 Permite:
 
-Insertar elementos al inicio o al final de la lista.
+Leer la cantidad de elementos de la lista, es decir su longitud.
 
-Eliminar elementos de la lista.
+Copiar elementos de la lista.
 
-Recorrer la lista hacia adelante o hacia atrás.
+Invertir la lista.
 
 Medir la eficiencia de las operaciones y analizar su complejidad.
 
@@ -33,15 +33,19 @@ docs/ → carpeta donde se encuentra el informe completo en PDF.
 
 Implementa un TAD de lista doblemente enlazada.
 
-Operaciones principales: insertar al inicio o al final, eliminar nodos, recorrer adelante o atrás.
+Operaciones principales: copiar, leer e invertir los elementos dicha lista implementada.
 
 Se realizaron pruebas con listas de 500 elementos aleatorios para verificar que todas las operaciones funcionan correctamente.
 
 Se midieron tiempos de ejecución para cada operación y se generaron gráficas comparando los resultados con la complejidad teórica:
 
-Inserción/Eliminación en extremos → O(1)
+Copiar la lista → O(n)
 
-Búsqueda/Recorrido → O(n)
+
+Longitud de la lista (len) → O(n)
+
+
+Invertir la lista → O(n)
 
 ---
 ## 📑Dependencias
@@ -72,7 +76,6 @@ Búsqueda/Recorrido → O(n)
 <<<<<<< HEAD
 =======
 
->>>>>>> 3c1e468 (agregado)
 ---
 
 > **Consejo**: Mantén el README **actualizado** conforme evoluciona el proyecto, y elimina (o añade) secciones según necesites. Esta plantilla es sólo un punto de partida general.
