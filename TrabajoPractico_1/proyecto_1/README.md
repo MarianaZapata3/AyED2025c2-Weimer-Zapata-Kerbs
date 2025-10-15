@@ -42,7 +42,7 @@ Se midieron tiempos de ejecución para cada operación y se generaron gráficas 
 Copiar la lista → O(n)
 
 
-Longitud de la lista (len) → O(n)
+Longitud de la lista (len) → O(1)
 
 
 Invertir la lista → O(n)
