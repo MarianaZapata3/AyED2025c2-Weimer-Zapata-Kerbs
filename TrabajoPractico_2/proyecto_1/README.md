@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+
 🐍# Proyecto “Sala de Emergencias”
 🏥 Breve descripción del proyecto
 
