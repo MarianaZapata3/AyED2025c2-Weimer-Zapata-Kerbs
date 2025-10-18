@@ -1,81 +1,41 @@
 <<<<<<< HEAD
-# 🐍Proyecto “Lista Doble Enlazada”
-Breve descripción del proyecto:
+# Proyecto “Sala de Emergencias”
+🏥 Breve descripción del proyecto
 
-Este proyecto implementa un Tipo Abstracto de Datos (TAD) de lista doblemente enlazada.
-Permite:
+Este proyecto implementa un sistema de triaje que simula la atención de pacientes en una sala de emergencias.
+Cada paciente se clasifica según su nivel de riesgo clínico:
 
-Insertar elementos al inicio o al final de la lista.
+1: Crítico
 
-Eliminar elementos de la lista.
+2: Moderado
 
-Recorrer la lista hacia adelante o hacia atrás.
+3: Bajo
 
-Medir la eficiencia de las operaciones y analizar su complejidad.
-=======
-# 🐍Proyecto “Estructuras y Algoritmos de Cartas”
+El objetivo principal es gestionar la atención prioritaria de los pacientes de acuerdo con su nivel de riesgo, garantizando que el sistema atienda primero a quienes requieren asistencia urgente.
 
-Breve descripción del proyecto:
-
-Este proyecto implementa estructuras de datos y algoritmos para manejar listas y mazos de cartas usando listas doblemente enlazadas.
-Permite:
-
-Crear y manipular mazos de cartas (agregar arriba/abajo, sacar cartas, recorrer).
-
-Implementar y probar listas doblemente enlazadas con distintas operaciones.
-
-Medir tiempos de ejecución y analizar la complejidad de las operaciones.
-
-Generar gráficas que muestran el comportamiento de cada estructura/algoritmo
->>>>>>> 3c1e468 (agregado)
-
+Para ello, se desarrolla una estructura de datos genérica basada en una cola de prioridad (Priority Queue), que permite insertar y eliminar elementos según su prioridad.
+Si dos pacientes tienen el mismo nivel de riesgo, se utiliza un segundo criterio de desempate: el orden de llegada.
 ---
 ## 🏗Arquitectura General
-
-<<<<<<< HEAD
 El código está organizado de manera modular:
 
-modulos/lista.py → contiene la clase ListaDobleEnlazada con todas las operaciones del TAD.
+modulos/cola_prioridad.py → Implementa el TAD genérico de cola de prioridad utilizando un montículo binario (heap).
 
-main.py → ejecuta pruebas con listas de distintos tamaños, verifica resultados y genera gráficas de tiempos de ejecución.
+modulos/paciente.py → Define la clase Paciente, con atributos como nombre, riesgo y número de llegada.
 
-data/ → carpeta donde se guardan las gráficas generadas.
-=======
-El proyecto está organizado en módulos y una aplicación principal:
+simulacion.py → Contiene la simulación del proceso de triaje y atención de pacientes.
 
-modulos/ → contiene los TADs y clases principales:
+main.py → Ejecuta el programa principal, mostrando el orden de atención de los pacientes.
 
-lista.py → implementación de la lista doblemente enlazada (Ejercicio 1)
+data/ → Carpeta donde pueden guardarse resultados o registros de la simulación.
 
-mazo.py → implementación del mazo de cartas (Ejercicio 2)
+docs/ → Carpeta donde se encuentra el informe completo del proyecto en formato PDF.
 
-simulacion.py → medición de tiempos y gráficos para análisis de complejidad (Ejercicio 3)
+Complejidad Teorica:
 
-main.py → ejecuta los tres ejercicios, mide tiempos y genera gráficos.
+Inserción → O(log n)
 
-data/ → carpeta donde se guardan las gráficas generadas por Python.
->>>>>>> 3c1e468 (agregado)
-
-docs/ → carpeta donde se encuentra el informe completo en PDF.
-
-Las gráficas de los resultados están disponibles en la carpeta data
- del proyecto.
-El informe completo está disponible en la carpeta docs
- del proyecto.
-
- Ejercicio 1 – Lista Doble Enlazada
-
-Implementa un TAD de lista doblemente enlazada.
-
-Operaciones principales: insertar al inicio o al final, eliminar nodos, recorrer adelante o atrás.
-
-Se realizaron pruebas con listas de 500 elementos aleatorios para verificar que todas las operaciones funcionan correctamente.
-
-Se midieron tiempos de ejecución para cada operación y se generaron gráficas comparando los resultados con la complejidad teórica:
-
-Inserción/Eliminación en extremos → O(1)
-
-Búsqueda/Recorrido → O(n)
+Eliminación → O(log n)
 
 ---
 ## 📑Dependencias
