@@ -16,6 +16,7 @@ El objetivo principal es gestionar la atención prioritaria de los pacientes de 
 
 Para ello, se desarrolla una estructura de datos genérica basada en una cola de prioridad (Priority Queue), que permite insertar y eliminar elementos según su prioridad.
 Si dos pacientes tienen el mismo nivel de riesgo, se utiliza un segundo criterio de desempate: el orden de llegada.
+
 ---
 ## 🏗Arquitectura General
 El código está organizado de manera modular:
