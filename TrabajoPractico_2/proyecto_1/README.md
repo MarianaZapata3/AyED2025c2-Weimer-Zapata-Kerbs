@@ -1,5 +1,5 @@
 <<<<<<< HEAD
-# Proyecto “Sala de Emergencias”
+🐍# Proyecto “Sala de Emergencias”
 🏥 Breve descripción del proyecto
 
 Este proyecto implementa un sistema de triaje que simula la atención de pacientes en una sala de emergencias.
