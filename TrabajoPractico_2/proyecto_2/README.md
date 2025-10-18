@@ -1,56 +1,53 @@
-# 🐍Proyecto “Mazo de Cartas”
-Breve descripción del proyecto:
+# 🐍Proyecto “Temperaturas_DB”
+Breve descripción del proyecto
 
-Este proyecto implementa un mazo de cartas usando una lista doblemente enlazada.
-Permite:
+El proyecto “Temperaturas_DB” implementa una base de datos en memoria para registrar y consultar temperaturas de la Tierra asociadas a fechas específicas.
+Cada registro está compuesto por:
 
-Agregar cartas al inicio o al final del mazo.
+Temperatura (°C) — valor numérico flotante.
 
-Sacar cartas del mazo de manera controlada.
+Fecha de registro — ingresada como cadena "dd/mm/aaaa", y almacenada internamente como objeto datetime para facilitar comparaciones y ordenamiento.
 
-Obtener el tamaño del mazo y recorrerlo en orden.
+El almacenamiento de las mediciones se realiza mediante un árbol AVL, una estructura de datos auto-balanceada que mantiene sus elementos ordenados y garantiza eficiencia en las operaciones de búsqueda, inserción y eliminación.
+Esto permite que el científico Kevin Kelvin realice consultas rápidas incluso cuando el volumen de datos crece significativamente.
 
-Medir el desempeño de las operaciones y analizar su complejidad.
 ---
 ## 🏗Arquitectura General
 
-El código está organizado de manera modular:
+El código está organizado en módulos y clases:
 
-modulos/mazo.py → contiene la clase Mazo con todas las operaciones del TAD.
+modulos/nodo_avl.py → Implementa el nodo del árbol AVL, con atributos fecha, temperatura, altura, izq, der.
 
-modulos/lista.py → lista doblemente enlazada utilizada internamente por el mazo.
+modulos/arbol_avl.py → Implementa las operaciones del árbol AVL: inserción, rotaciones, eliminación y recorrido.
 
-main.py → ejecuta pruebas con mazos de distintos tamaños, verifica resultados y genera gráficas de tiempos de ejecución.
+temperaturas_db.py → Define la clase principal Temperaturas_DB, que actúa como interfaz de la base de datos y utiliza internamente un árbol AVL.
 
-data/ → carpeta donde se guardan las gráficas generadas.
+lector_archivo.py → Contiene funciones para leer archivos de muestras (por ejemplo, CSV o TXT) y cargar automáticamente los registros a la base de datos.
 
-docs/ → carpeta donde se encuentra el informe completo en PDF.
+main.py → Permite probar todas las funcionalidades: inserción de muestras, consultas por rango, eliminación y conteo.
 
-Las gráficas de los resultados están disponibles en la carpeta data
- del proyecto.
-El informe completo está disponible en la carpeta docs
- del proyecto.
-Ejercicio 2 – Mazo de Cartas
+data/ → Carpeta donde se almacenan archivos de entrada o resultados de consultas.
 
-Implementa un mazo de cartas usando la lista doblemente enlazada.
+docs/ → Carpeta donde se encuentra el informe del proyecto.
 
-Operaciones principales:
+Complejidad Teórica:
 
-poner_carta_arriba → O(1)
+guardar_temperatura → O(log n)
 
-poner_carta_abajo → O(1)
+devolver_temperatura → O(log n)
 
-sacar_carta_arriba → O(1)
+max_temp_rango → O(k + log n)
 
-__len__ → O(1)
+min_temp_rango → O(k + log n)
 
-__str__ → O(n)
+temp_extremos_rango → O(k + log n) 
 
-Se realizaron pruebas con mazos de 500 cartas aleatorias.
+borrar_temperatura → O(log n)
 
-Se verificó que las operaciones mantienen el orden esperado y que los resultados son correctos.
+devolver_temperaturas → O(k + log n)
 
-Se pueden generar gráficas de la evolución del tamaño del mazo durante la ejecución.
+cantidad_muestras → O(1) 
+
 ---
 ## 📑Dependencias
 
