@@ -3,8 +3,8 @@
 import time
 import datetime
 import random
-import modules.pacientes as pac
-from modules.coladeprioridad import ColaPrioridad
+import pacientes as pac
+from coladeprioridad import ColaPrioridad
 
 n = 20  # ciclos de simulación
 
@@ -37,8 +37,3 @@ for i in range(n):
     
     print('-*-'*15)
     time.sleep(1)
-
-
-
-
-

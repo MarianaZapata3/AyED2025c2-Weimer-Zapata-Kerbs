@@ -22,4 +22,3 @@ class ColaPrioridad:
 
     def ver_todos(self):
         return [x[2] for x in sorted(self._heap)]
-
