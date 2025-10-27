@@ -34,5 +34,3 @@ while heap and len(visitados)<len(grafo):
 print("=== MST (Prim) ===")
 for f,t,w in mst: print(f"{f} — {t} : {w} leguas")
 print("Costo total:", sum(w for _,_,w in mst),"leguas")
-
-
