@@ -7,8 +7,8 @@ archivo = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", 
 grafo = {}
 with open(archivo, "r", encoding="utf-8") as f:
     for l in f:
-        p = [x.strip() for x in l.strip().split(",")] #separa a,b y peso
-        if len(p) != 3: continue #ignora cualquier linea que es invalida
+        p = [x.strip() for x in l.strip().split(",")] #separa a, b y el peso
+        if len(p) != 3: continue #ignora cualquier linea inválida
         a,b,w = p
         try: w=int(w) #convierte la distancia en un numero
         except: continue
@@ -17,11 +17,11 @@ with open(archivo, "r", encoding="utf-8") as f:
         grafo.setdefault(b,[]).append((a,w))
 
 # Prim
-origen="Peligros"
-visitados={origen} #aldeas incluidas en el MST
+origen="Peligros" #raíz
+visitados={origen} #aldeas incluidas en el MST en nodos hijos
 heap=[(w,origen,v) for v,w in grafo[origen]]; heapq.heapify(heap) #cola de prioridad para aristas
 mst=[] #lista donde se guardan las aristas
-while heap and len(visitados)<len(grafo):
+while heap and len(visitados)<len(grafo): #mientras que la cantidad de visitados sea menor al numero de nodos en el grafo
     w,f,t = heapq.heappop(heap) #se selecciona la arista mas pequeña
     if t not in visitados:
         visitados.add(t) #marca la aldea que se visito
@@ -31,6 +31,6 @@ while heap and len(visitados)<len(grafo):
             if v not in visitados: heapq.heappush(heap,(ww,t,v))
 
 # Resultado
-print("=== MST (Prim) ===")
+print("=== Mínima distancia (Prim) ===")
 for f,t,w in mst: print(f"{f} — {t} : {w} leguas")
 print("Costo total:", sum(w for _,_,w in mst),"leguas")

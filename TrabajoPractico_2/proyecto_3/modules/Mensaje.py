@@ -1,10 +1,10 @@
 import os
 from collections import deque
 
-# Se almacenan los datos del txt en archivo
+#Se almacenan los datos del txt en una lista llamada archivo 
 archivo = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", "data", "aldeas.txt"))
 
-# Union-Find
+#Union-Find
 class UF:
     def __init__(self): self.p,self.r={},{} #diccionarios
     def make(self,x): self.p[x]=x; self.r[x]=0 #se incializa el conjunto
@@ -13,14 +13,14 @@ class UF:
         return self.p[x]
     def union(self,x,y): #se unen dos conjuntos cuando no estan conectados
         rx,ry=self.find(x),self.find(y)
-        if rx==ry: return False #estan en el mismo conjunto
+        if rx==ry: return False #si estan en el mismo conjunto
         if self.r[rx]<self.r[ry]: self.p[rx]=ry
         else:
             self.p[ry]=rx
             if self.r[rx]==self.r[ry]: self.r[rx]+=1
         return True
 
-# Leer archivo y aristas
+#Leer archivo y aristas
 edges=[]
 with open(archivo,"r",encoding="utf-8") as f:
     for l in f:
@@ -30,22 +30,22 @@ with open(archivo,"r",encoding="utf-8") as f:
         try:w=int(w)
         except: continue
         edges.append((a,b,w))
-nodes=sorted({n for e in edges for n in e[:2]}, key=lambda s:s.lower()) #lista de aldeas
+nodes=sorted({n for e in edges for n in e[:2]}, key=lambda s:s.lower()) #lista de aldeas almacenada en nodos
 
-# Kruskal
+#Kruskal
 uf=UF(); [uf.make(n) for n in nodes]
 mst=[]
 for u,v,w in sorted(edges,key=lambda x:x[2]): #se ordenan las aristas por su peso
     if uf.union(u,v): mst.append((u,v,w)) #agrega una arista si se conectan componentes
 
-# BFS para organizar desde 'Peligros'
+#BFS para organizar desde 'Peligros'
 adj={n:[] for n in nodes} #grafo del MST
 for u,v,w in mst: adj[u].append((v,w)); adj[v].append((u,w))
 
-root="Peligros"; parent={root:None}; children={n:[] for n in nodes} #de quien recibe y envia cada aldea
+root="Peligros"; parent={root:None}; children={n:[] for n in nodes} #de quien recibe y donde envia cada aldea
 edge_w={}; visitados={root}; cola=deque([root])
 while cola: #desde peligros para organizar un arbol de mensajes
-    act=cola.popleft()
+    act=cola.popleft() 
     for v,w in adj[act]:
         if v not in visitados:
             visitados.add(v)
@@ -55,9 +55,9 @@ while cola: #desde peligros para organizar un arbol de mensajes
             cola.append(v)
 
 # Mostrar resultados
-print("\n=== LISTA ALFABÉTICA DE ALDEAS ===")
+print("\n=== Aldeas ordenadas alfabeticamente ===")
 for n in nodes: print(n)
-print("\n=== RUTAS DE COMUNICACIÓN (desde 'Peligros') ===")
+print("\n=== Rutas de comunicación (desde 'Peligros') ===")
 print(f"{'Aldea':20s}|{'Recibe de':15s}|{'Envía a':40s}")
 print("-"*80)
 for n in nodes:
