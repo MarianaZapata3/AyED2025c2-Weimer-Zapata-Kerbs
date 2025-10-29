@@ -33,4 +33,4 @@ while heap and len(visitados)<len(grafo): #mientras que la cantidad de visitados
 # Resultado
 print("=== Mínima distancia (Prim) ===")
 for f,t,w in mst: print(f"{f} — {t} : {w} leguas")
-print("Costo total:", sum(w for _,_,w in mst),"leguas")
+print("Costo total del recorrido:", sum(w for _,_,w in mst),"leguas")
