@@ -18,20 +18,20 @@ grafo = defaultdict(list)
 # Se abre el archivo en modo lectura
 with open(archivo, "r", encoding="utf-8") as f:
     for linea in f:
-        # Se separa la línea por comas y se eliminan espacios
+        # Se separa la línea con comas y se eliminan los espacios entre ellas
         partes = [x.strip() for x in linea.strip().split(",")]
         # Si la línea no tiene exactamente 3 elementos, se salta
         if len(partes) != 3:
             continue
         # Se extraen los datos: nombre de las aldeas y la distancia
         a, b, w = partes
-        # Se intenta convertir la distancia a número entero
+        # Se intenta convertir la distancia en un número entero
         try:
             w = int(w)
         except:
             # Si no se puede convertir, se ignora esa línea
             continue
-        # Como el grafo es NO dirigido, se agrega la conexión en ambos sentidos
+        # Como el grafo es no dirigido, se agrega la conexión en ambos sentidos
         grafo[a].append((b, w))
         grafo[b].append((a, w))
 
@@ -48,7 +48,7 @@ visitados = {origen}
 # Cada elemento tiene la forma (peso, desde, hasta)
 heap = [(w, origen, v) for v, w in grafo[origen]]
 
-# Se transforma la lista en un min-heap (cola ordenada por peso)
+# Se transforma la lista en un min-heap (una cola ordenada por peso)
 heapq.heapify(heap)
 
 # Lista donde se guardarán las aristas seleccionadas del Árbol de Expansión Mínima
@@ -61,8 +61,8 @@ while heap and len(visitados) < len(grafo):
     
     # Si la aldea de destino aún no fue visitada, se agrega al MST
     if v not in visitados:
-        visitados.add(v)           # Se marca como conectada
-        mst.append((u, v, w))      # Se guarda la conexión (u-v con peso w)
+        visitados.add(v)         # Se marca como conectada
+        mst.append((u, v, w))    # Se guarda la conexión (u-v con peso w)
         
         # Se agregan las nuevas aristas que salen desde esta aldea
         for vecino, peso in grafo[v]:
@@ -91,7 +91,7 @@ hijos = defaultdict(list)
 # Diccionario que guarda la distancia usada en cada conexión
 distancia = {}
 
-# Se usa una cola (BFS) para recorrer el árbol desde "Peligros"
+# Se usa una cola para recorrer el árbol desde "Peligros"
 cola = deque([origen])
 visitados = {origen}
 
@@ -108,12 +108,12 @@ while cola:
 
 
 # Resultados
-# Mostrar las aldeas en orden alfabético
+# Se muestran las aldeas en orden alfabético
 print("\nAldeas ordenadas alfabeticamente:")
 for n in sorted(grafo.keys(), key=lambda s: s.lower()):
     print(f" - {n}")
 
-# Mostrar tabla de comunicación
+# Tabla de aldea, de donde viene y hacia donde envia
 print("\nRutas de comunicacion (desde 'Peligros'):")
 print(f"{'Aldea':20s}|{'Recibe de':15s}|{'Envía a':40s}")
 print("-" * 80)
@@ -126,7 +126,7 @@ for n in sorted(grafo.keys(), key=lambda s: s.lower()):
     # A quiénes reenvía la noticia
     envia = ", ".join(sorted(hijos[n])) if hijos[n] else "-"
     
-    # Imprime la información formateada
+    # Imprime la información
     print(f"{n:20s}|{recibe:15s}|{envia:40s}")
 
 
