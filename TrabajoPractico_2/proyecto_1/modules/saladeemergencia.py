@@ -1,5 +1,3 @@
-# -*- coding: utf-8 -*-
-
 import time
 import datetime
 import random
@@ -37,3 +35,4 @@ for i in range(n):
     
     print('-*-'*15)
     time.sleep(1)
+
