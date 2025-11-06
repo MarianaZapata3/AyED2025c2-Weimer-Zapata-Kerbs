@@ -8,7 +8,7 @@ class ColaPrioridad:
         self._contador = 0
     
     #función que compara dos elementos del montículo según su prioridad y llegada
-    def _esmenor(self, i, j):
+    def esmenor(self, i, j):
         #devuelve true si el elemento en la posición i tiene mayor prioridad (o llegó antes) que el de j
         return tuple(self._heap[i][:3]) < tuple(self._heap[j][:3])
     
@@ -18,7 +18,7 @@ class ColaPrioridad:
         while idx > 0:
             padre = (idx - 1) // 2
             #si el nodo hijo tiene mayor prioridad que su padre, se intercambian
-            if self._esmenor(idx, padre):
+            if self.esmenor(idx, padre):
                 self._heap[idx], self._heap[padre] = self._heap[padre], self._heap[idx]
                 idx = padre
             else:
@@ -32,9 +32,9 @@ class ColaPrioridad:
             der = 2 * idx + 2 #hijo derecho
             menor = idx #asumimos que el elemento actual es el menor
             #se elige el hijo con mayor prioridad (menor valor en la tupla)
-            if izq < n and self._esmenor(izq, menor):
+            if izq < n and self.esmenor(izq, menor):
                 menor = izq
-            if der < n and self._esmenor(der, menor):
+            if der < n and self.esmenor(der, menor):
                 menor = der
             if menor == idx:
                 break
