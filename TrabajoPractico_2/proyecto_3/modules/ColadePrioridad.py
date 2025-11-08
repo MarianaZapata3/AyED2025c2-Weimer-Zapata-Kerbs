@@ -64,4 +64,9 @@ class ColaPrioridad:
     
     #funcion que devuelve True si la cola de prioridad esta vacia
     def esta_vacia(self):
-        return len(self._heap) == 0
+        return len(self._heap) == 0 
+    
+
+
+
+    
